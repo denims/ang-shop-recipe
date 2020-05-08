@@ -5,10 +5,10 @@ import { Recipe } from './recipe.model';
   providedIn: 'root'
 })
 export class RecipeService {
+  selectedRecipe = new EventEmitter<Recipe>();
   private recipe: Recipe[] =
   [new Recipe('Test Recipe', 'Test desc', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_1280.jpg'),
   new Recipe('Test Recipe 2', 'Test desc 2', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_1280.jpg')];
-  selectedRecipe = new EventEmitter<Recipe>();
 
   constructor() { }
 
