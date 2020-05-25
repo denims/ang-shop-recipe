@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-shop-recipe';
-  showRecipe = true;
-
-  onRecipeOrShoppingSelection(recipeClicked: boolean) {
-    this.showRecipe = recipeClicked;
-  }
 }
