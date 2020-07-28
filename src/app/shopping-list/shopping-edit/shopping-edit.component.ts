@@ -21,6 +21,7 @@ export class ShoppingEditComponent implements OnInit {
     this.shoppingListService.addIngredient(
       new Ingredient(shoppingComponent.value.nameInput,
         shoppingComponent.value.amountInput));
+    shoppingComponent.resetForm();
   }
 
 }
