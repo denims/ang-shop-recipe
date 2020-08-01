@@ -9,12 +9,18 @@ import {Subject} from 'rxjs';
 export class ShoppingListService {
   ingredientsChanged = new Subject<Ingredient[]>();
   private ingredients: Ingredient[] = [new Ingredient('Apples', 5),
-  new Ingredient('Tomatoes', 10)];
+    new Ingredient('Tomatoes', 10)];
+  ingredientClicked = new Subject<number>();
 
-  constructor() { }
+  constructor() {
+  }
 
   getIngredients() {
     return this.ingredients.slice();
+  }
+
+  getIngredientBasedOnIndex(indexOfIngredient: number) {
+    return this.ingredients[indexOfIngredient];
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -25,5 +31,10 @@ export class ShoppingListService {
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(ingredients);
+  }
+
+  editIngredient(ingredient: Ingredient, indexOfIngredient: number) {
+    this.ingredients[indexOfIngredient] = ingredient;
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
